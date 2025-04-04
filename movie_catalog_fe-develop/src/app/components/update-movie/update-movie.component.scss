@@ -1,0 +1,58 @@
+.updateCard {
+  text-align: center;
+  margin : 100px auto;
+  width: 90%;
+}
+
+.button-container {
+  margin-top: 20px;
+  padding-bottom: 16px;
+}
+
+.demo-button  {
+  margin: 15px;
+  font-size: medium;
+  min-width: fit-content;
+  padding: 20px 20px;
+}
+
+.updateCard label{
+  text-align: left;
+}
+
+mat-error{
+  font-size: small;
+}
+
+mat-form-field{
+  width: 35%;
+  overflow: auto;
+  min-width: 210px;
+  margin: 10px 1%;
+
+}
+
+label{
+  float: inline-start;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.error{
+  color:red ;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.mat-chip-grid{
+  height: 80px !important;
+}

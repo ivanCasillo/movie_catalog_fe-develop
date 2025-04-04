@@ -1,0 +1,24 @@
+.multi-select-btn-container{
+    width: fit-content;
+    height: fit-content;
+}
+.multi-select-btn{
+    display: flex;
+    margin-right: 6px;
+    padding: 3px;
+    text-align: center;
+    border-radius: 50%;
+    border:none;
+    background: green;
+    transition: 0.2s;
+}
+.multi-select-btn:hover{
+    cursor: pointer;
+    background: rgb(30, 223, 30);
+    transform: translate(-1px,-1px);
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.575);
+}
+.multi-select-btn mat-icon{
+    filter: invert(100%);
+}
+

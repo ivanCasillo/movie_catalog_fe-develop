@@ -1,0 +1,84 @@
+
+<mat-grid-list cols="1" style="text-align: center;">
+
+<!-- Search Bar -->
+<app-search-bar></app-search-bar>
+
+<!-- Swtich Cards - List -->
+ <mat-button-toggle-group value="selected" class="switch">
+    <mat-button-toggle value="selected" *ngIf="cardView"> <mat-icon>view_carousel</mat-icon> </mat-button-toggle>
+    <mat-button-toggle value="cards"*ngIf="!cardView" (click)="switchView()"> <mat-icon>view_carousel</mat-icon> </mat-button-toggle>
+    <mat-button-toggle value="selected" *ngIf="!cardView"> <mat-icon>menu</mat-icon> </mat-button-toggle>
+    <mat-button-toggle value="list" *ngIf="cardView" (click)="switchView()"> <mat-icon>menu</mat-icon> </mat-button-toggle>
+</mat-button-toggle-group>
+
+<app-category-chips></app-category-chips>
+
+</mat-grid-list>
+
+<mat-spinner class="loader" *ngIf="!response"></mat-spinner>
+
+<!-- Cards -->
+<mat-grid-list [cols]="gridCols" rowHeight="1.4:2.7" *ngIf="response && cardView" class="card-grid" [@fadeInOut]>
+    <mat-grid-tile *ngFor="let result of movies">
+      <app-movie-card [movie]="result" style="width: 90%; height: auto;" ></app-movie-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<!-- Table -->
+<div class="upperRow" *ngIf="response && !cardView">
+    <button mat-icon-button (click)="exportToPDF()">
+        <mat-icon>picture_as_pdf</mat-icon>
+    </button>
+    <button mat-icon-button (click)="exportToCSV()">
+        <mat-icon>download</mat-icon>
+    </button>
+</div>
+<div class="table" #moviesTable>
+    <table mat-table [dataSource]="movies" *ngIf="response && !cardView" class="mat-elevation-z8">
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> {{ 'movie.title' | translate }} </th>
+            <td mat-cell *matCellDef="let movie"> <p class="small-plot">{{movie.movieDto.title}}</p> </td>
+        </ng-container>
+    
+        <!-- Plot Column -->
+        <ng-container matColumnDef="plot">
+            <th mat-header-cell *matHeaderCellDef> {{ 'movie.plot' | translate }} </th>
+            <td mat-cell *matCellDef="let movie"> <p class="small-plot">{{movie.movieDto.plot}}</p> </td>
+        </ng-container>
+    
+        <!-- IMDB Rating Column -->
+        <ng-container matColumnDef="imdbrating">
+            <th mat-header-cell *matHeaderCellDef> {{ 'movie.imdbRating' | translate }} </th>
+            <td mat-cell *matCellDef="let movie"> {{movie.movieDto.rating}} </td>
+        </ng-container>
+
+        <!-- Bottone -->
+        <ng-container matColumnDef="button">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let movie"> 
+                <button mat-icon-button (click)="openDialog(movie.movieDto.imdbid)"> <mat-icon>visibility</mat-icon> </button>
+            </td>
+        </ng-container>
+
+        <!-- Bottone -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let movie"> 
+                <button mat-icon-button (click)="goUpdate(movie.movieDto.imdbid)"> <mat-icon>edit</mat-icon> </button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
+
+<!-- Pagination -->
+<mat-paginator class="custom-paginator" [length]="totalItems" [pageSize]="pageSize"
+               [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons
+               (page)="paginatorPageChange($event)">
+</mat-paginator>
+

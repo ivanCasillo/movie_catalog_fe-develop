@@ -1,0 +1,14 @@
+<mat-grid-list cols="1" style="text-align: center;">
+
+<app-search-bar></app-search-bar>
+
+<!-- Chips -->
+<app-category-chips></app-category-chips>
+
+</mat-grid-list>
+
+<app-slider [category] = "category" [title] = "'For You'" [type] = "'all'"></app-slider>
+
+<div *ngFor="let cat of categories">
+    <app-slider [category] = "cat.idGenre" [title] = "cat.genre" [type] = "'category'"></app-slider>
+</div>

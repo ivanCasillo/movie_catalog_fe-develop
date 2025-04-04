@@ -1,0 +1,177 @@
+@import '/src/custom-theme.scss';
+$bg : $movie-catalog-fe-theme;
+.footer{
+  bottom: 0;
+  height: fit-content;
+  width: 100%;
+  background: map-get($bg,primary,700);
+}
+.footerToolBar{
+  color: white;
+  padding:20px 0 20px 0;
+  width: 100%;
+  min-height: fit-content;
+  text-align: center;
+  display: inline-flex;
+}
+h2{
+  margin: 0;
+  padding: 0;
+}
+share-buttons{
+  display: inline-flex;
+  margin: 0 5px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.293);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+share-buttons:hover{
+  background: rgba(255, 255, 255, 0.258);
+}
+.copyRight{
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-size: small;
+}
+.divider{
+  margin:0 auto;
+  width: 30%;
+  border:1px solid rgba(0,0,0,0);
+  transition: 0.6s;
+}
+.divider:hover{
+  border-right: 1px solid rgba(255, 255, 255, 0.267);
+  border-left: 1px solid rgba(255, 255, 255, 0.267);
+}
+.cardContainer{
+  width: fit-content;
+  text-align: center;
+  margin:  0 auto;
+  padding: 5px 10px;
+  height: fit-content;
+}
+
+mat-list-item{
+  text-align: center;
+  margin:0 auto;
+  width: 100%;
+  height: fit-content;
+}
+mat-list-item mat-label{
+  color: white;
+}
+.cardContainer mat-list-item:hover{
+  background: rgba(0,0,0,0.2);
+}
+.cardContainer mat-list-item:hover  mat-label{
+  transition: 0.2s;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+.searchmap{
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+mat-icon{
+  transform: translateY(20%);
+}
+.map{
+  border-radius: 5px;
+  width: 250px;
+  height: 200px;
+  margin-right: 10px;
+
+}
+
+.footerlogo{
+  height: 50px;
+  margin-right: 20px;
+  filter: invert(100%);
+}
+.footerlogo:hover{
+  cursor: pointer;
+}
+
+.maptitle{
+  display: flex;
+  align-items:center
+}
+.maptitle mat-label{
+  cursor: pointer;
+  transition: 0.2s;
+}
+.maptitle mat-label:hover{
+  text-shadow: 0 0 5px white;
+}
+.socialLogo{
+  filter: invert(100%);
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+.socialBox{
+  display: inline-flex;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 30%;
+  transition: 0.5s;
+}
+.fb:hover{
+  background: #1877F2;
+}
+.mail:hover{
+  background: #dd4b39;
+}
+.wa:hover{
+  background: #25D366;
+}
+.tw:hover{
+  background: rgb(29, 155, 240);
+}
+.in:hover{
+  background: #0a66c2;
+}
+.mapbg:hover{
+  animation-name: googlecolor;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes googlecolor {
+  0%{background:rgba(234,67,53,1);}
+  25%{background:rgba(251,188,5,1);}
+  50%{background:rgba(52,168,83,1);}
+  75%{background:rgb(67, 135, 244);}
+  100%{background:rgba(234,67,53,1);}
+}
+
+@media screen and (max-width: 900px) {
+  .hide{
+    display: none;
+  }
+  .divider{
+    width: 50%;
+  }
+  .cardContainer mat-list-item:hover  mat-label{
+    font-weight: 700;
+    letter-spacing: 0;
+    color: white;
+  }
+  .searchmap{
+    display: inline-flex;
+  }
+  .divider:hover{
+    border-right: 1px solid rgba(0,0,0,0) ;
+    border-left: 1px solid rgba(0,0,0,0);
+  }
+ /* .fb:hover , .map:hover, .mail:hover, .wa:hover, .tw:hover, .in:hover, .map:hover{
+    background:none;
+    animation: none;
+  }*/
+
+}

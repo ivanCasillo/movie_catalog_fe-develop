@@ -1,0 +1,92 @@
+.user-container {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  mat-card {
+    width: 39%;
+    height: max-content;
+  }
+  mat-form-field {
+    width: 100%;
+    padding-right: 2%;
+  }
+
+  /* input{
+    text-align: center;
+  } */
+
+  @media (max-width: 1000px) {
+    mat-card {
+      width: 80%;
+    }
+  }
+
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  mat-card-title {
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 10%;
+    width: 100%;
+  }
+
+/* input{
+  text-align: center;
+} */
+
+@media (max-width: 1000px) {
+  mat-card {
+    width: 80%;
+  }
+}
+
+
+/* Stile dell'icona dell'utente */
+.user-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19vh;
+  height: 19vh;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: whitesmoke;
+  font-size: 100px;
+  font-weight: 800;
+  margin-right: 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  border: 4px solid black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+  white-space: nowrap;
+}
+
+
+/* Stile delle iniziali dell'utente */
+.user-initials {
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Aggiungi una leggera ombra al testo */
+}
+
+/* Stile per centrare l'avatar orizzontalmente */
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Optional: Add some spacing below the avatar */
+}
+
